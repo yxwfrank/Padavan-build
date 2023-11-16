@@ -39,7 +39,7 @@ jobs:
         else
         git clone --depth=1 https://github.com/frankyxw/Padavan-KVR.git /opt/rt-n56u
         fi
-        su mkdir /opt/rt-n56u/toolchain-mipsel
+        mkdir -p /opt/rt-n56u/toolchain-mipsel/
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
