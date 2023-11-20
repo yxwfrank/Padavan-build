@@ -32,21 +32,23 @@ jobs:
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
     - name: Clone source code
       env:
-        KERNEL: 3.4
+        KERNEL: 4.4
       run: |
         if [ $KERNEL = "4.4" ] ; then
         git clone --depth=1 https://github.com/frankyxw/padavan4.4.git /opt/rt-n56u
         else
         git clone --depth=1 https://github.com/frankyxw/Padavan-KVR.git /opt/rt-n56u
         fi
-        mkdir -p /opt/rt-n56u/toolchain-mipsel/
+        if [ $KERNEL = "4.4" ] ; then
+        cd /opt/rt-n56u/toolchain
+        else
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
         TNAME: RT-AC85P
-        KERNEL: 3.4
+        KERNEL: 4.4
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
