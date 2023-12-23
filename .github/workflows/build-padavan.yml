@@ -35,7 +35,7 @@ jobs:
         KERNEL: 4.4
       run: |
         if [ $KERNEL = "4.4" ] ; then
-        git clone --depth=1 https://github.com/frankyxw/padavan-4.4-AC85P.git /opt/rt-n56u
+        git clone --depth=1 https://github.com/frankyxw/padavan-4.4.git /opt/rt-n56u
         else
         git clone --depth=1 https://github.com/frankyxw/Padavan-KVR.git /opt/rt-n56u
         fi
